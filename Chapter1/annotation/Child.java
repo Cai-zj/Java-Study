@@ -1,4 +1,6 @@
-package Chapter1;
+package Chapter1.annotation;
+
+
 
 /**
  * @author caizhuojie
@@ -8,8 +10,10 @@ package Chapter1;
  * @date 2017/10/25
  * @Copyright (c) 2017, czj8515@gmail.com All Rights Reserved.
  */
+@AnnotationDemo("this is Class Annotation")
 public class Child implements Person {
 
+    @AnnotationDemo("this is Method Annotation")
     @Override
     public String name() {
         return null;

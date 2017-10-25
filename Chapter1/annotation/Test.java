@@ -1,4 +1,8 @@
-package Chapter1;
+package Chapter1.annotation;
+
+
+import Chapter1.annotation.Child;
+import Chapter1.annotation.Person;
 
 /**
  * @author caizhuojie
