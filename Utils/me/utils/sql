@@ -1,0 +1,15 @@
+/**
+	 * 执行sql语句
+	 * @param sql    sql
+	 * @param params 参数
+	 * @return 成功数
+	 */
+	public static int executeSqlWithParams(String sql, Map params) {
+		Query query = JPA.em().createNativeQuery(sql.toString());
+		Iterator<String> iterator = params.keySet().iterator();
+		while (iterator.hasNext()) {
+			String key = iterator.next();
+			query.setParameter(key, params.get(key));
+		}
+		return query.executeUpdate();
+	}
