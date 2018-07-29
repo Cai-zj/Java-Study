@@ -9,10 +9,10 @@
 ​	ubuntu | centos 
 
 ## 二. 安装过程
+	
+	以下为在Ubuntu 16.04 下安装过程
 
-​	以下为在Ubuntu 16.04 下安装过程
-
- 1.  将 atlassian-confluence 解压到 /opt 目录下之下
+ 	1. 将 atlassian-confluence 解压到 /opt 目录下之下
 
      sudo mkdir /opt/confluence
 
