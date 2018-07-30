@@ -40,7 +40,7 @@
 
 	4. 进入交互式的安装过程
 
-    ![](file:///home/cai-zj/%E5%9B%BE%E7%89%87/2018-07-29%2022-09-13%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
+    ![](./2018-07-29 22-09-13屏幕截图.png)
 
     如果要修改confluence的数据目录，可以在安装的时候，在安装过程中进行更换（默认是/var/atlassian/application-data/confluence）
 
@@ -99,7 +99,7 @@
 
     java -jar confluence_keygen.jar
 
-    ![](/home/cai-zj/图片/2018-07-29 22-33-34屏幕截图.png)
+    ![](./2018-07-29 22-33-34屏幕截图.png)
 
      将生成的key复制到对于的输入框中 点击next 
 
@@ -123,7 +123,7 @@
 
      [官方说明](https://confluence.atlassian.com/confkb/how-to-fix-out-of-memory-errors-by-increasing-available-memory-154071.html)
 
-     ![](/home/cai-zj/图片/2018-07-29 23-02-42屏幕截图.png)
+     ![](./2018-07-29 23-02-42屏幕截图.png)
 
      如果你决定增加内存设置，则需要遵循一些通用准则
 
@@ -135,4 +135,4 @@
 
      **JAVA_OPTS =“ - Xms256m -Xmx512m -XX：MaxPermSize = 256m**以前的版本
 
-     ![](/home/cai-zj/图片/2018-07-29 23-05-51屏幕截图.png)
+     ![](./2018-07-29 23-05-51屏幕截图.png)
