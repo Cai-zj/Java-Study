@@ -8,131 +8,133 @@
 
 ​	ubuntu | centos 
 
+
 ## 二. 安装过程
-	
-	以下为在Ubuntu 16.04 下安装过程
+   以下为在Ubuntu 16.04 下安装过程
 
- 	1. 将 atlassian-confluence 解压到 /opt 目录下之下
+  1. 将 atlassian-confluence 解压到 /opt 目录下之下
 
-     sudo mkdir /opt/confluence
+   sudo mkdir /opt/confluence
 
-     unzip Confluence-5.6.6-language-pack-zh_CN.jar /opt/confluence
+   unzip Confluence-5.6.6-language-pack-zh_CN.jar /opt/confluence
 
-     创建相关数据库
+   创建相关数据库
 
-     create database confluence default character set utf8 collate utf8_bin;
+   create database confluence default character set utf8 collate utf8_bin;
 
      ​
 
-	2. 给予执行权限
+   2. 给予执行权限
 
-    cd /opt/confluence
+   cd /opt/confluence
 
-    chmod +x atlassian-confluence-5.6.6-x64.bin
-
-    ​
-
-	3. 使用管理员权限进行安装
-
-    sudo ./atlassian-confluence-5.6.6-x64.bin
+   chmod +x atlassian-confluence-5.6.6-x64.bin
 
     ​
 
-	4. 进入交互式的安装过程
+   3. 使用管理员权限进行安装
 
-    ![image](img/install.png)
-
-    如果要修改confluence的数据目录，可以在安装的时候，在安装过程中进行更换（默认是/var/atlassian/application-data/confluence）
+   sudo ./atlassian-confluence-5.6.6-x64.bin
 
     ​
 
-	5. 相关命令
+  4. 进入交互式的安装过程
 
-    confluence .sh启动脚本目录为:/opt/atlassian/confluence/bin
+   ![image](img/install.png)   
 
-    安装完成之后可以通过 sudo /etc/init.d/confluence start | stop |restart 
-
-    进行启动,停止,重启等操作
+   如果要修改confluence的数据目录，可以在安装的时候，在安装过程中进行更换（默认是/var/atlassian/application-data/confluence）
 
     ​
 
-	6. 添加相关mysql 连接jar&相关中文语言包 &扩展包
+  5. 相关命令
+
+   confluence .sh启动脚本目录为:/opt/atlassian/confluence/bin
+
+   安装完成之后可以通过 sudo /etc/init.d/confluence start | stop |restart 
+
+   进行启动,停止,重启等操作
 
     ​
 
-    /opt/atlassian/confluence/confluence/WEB-INF/lib 目录下添加以下jar
-    atlassian-extras-3.2.jar
-
-    Confluence-5.6.6-language-pack-zh_CN.jar
-
-    mysql-connector-java-5.1.39-bin.jar
+   6. 添加相关mysql 连接jar&相关中文语言包 &扩展包
 
     ​
 
-    /opt/atlassian/confluence/confluence/WEB-INF/lib 目录下删除以下jar
+   /opt/atlassian/confluence/confluence/WEB-INF/lib 目录下添加以下jar
+   atlassian-extras-3.2.jar
 
-    atlassian-extras-api-3.2.jar
+   Confluence-5.6.6-language-pack-zh_CN.jar
 
-    atlassian-extras-common-3.2.jar
-
-    atlassian-extras-core-3.2.jar
-
-    atlassian-extras-decoder-api-3.2.jar
-
-    atlassian-extras-decoder-v2-3.2.jar
-
-    atlassian-extras-legacy-3.2.jar
+   mysql-connector-java-5.1.39-bin.jar
 
     ​
 
-	7. 进入安装 confluence 相关页面
+   /opt/atlassian/confluence/confluence/WEB-INF/lib 目录下删除以下jar
 
-    由于我在本地进行安装,所以打开页面http://localhost:8090
+   atlassian-extras-api-3.2.jar
 
-    进入之后选择产品安装
+   atlassian-extras-common-3.2.jar
 
-    next 下一步
+   atlassian-extras-core-3.2.jar
 
-    授权码 会提示输入相关的授权码
+   atlassian-extras-decoder-api-3.2.jar
 
-    使用 confluence_keygen.jar 相关工具进行破解
+   atlassian-extras-decoder-v2-3.2.jar
 
-    java -jar confluence_keygen.jar
+   atlassian-extras-legacy-3.2.jar
 
-    ![img](img/key.png)
+    ​
 
-     将生成的key复制到对于的输入框中 点击next 
+   7. 进入安装 confluence 相关页面
 
-	8. 选择你的数据库配置
+   由于我在本地进行安装,所以打开页面http://localhost:8090
 
-    这里使用了mysql 5.6 版本
+   进入之后选择产品安装
 
-    后面就是驱动连接数据库并生成相对于的表这里时间可能会长一些,因机器配置而定
+   next 下一步
 
-	9. 创建项目之后发现会有出现中文乱码现象
+   授权码 会提示输入相关的授权码
 
-    mysql -u root -p 
+   使用 confluence_keygen.jar 相关工具进行破解
 
-    show variables like 'character_set%';
+   java -jar confluence_keygen.jar
 
-    查看数据库编码相关信息
+   ![img](img/key.png)
 
-	10. 如遇到**OutOfMemoryError**错误时,这时应该在
+   将生成的key复制到对于的输入框中 点击next 
 
-     /opt/atlassian/confluence/bin/setenv.sh 中修改
+   8. 选择你的数据库配置
 
-     [官方说明](https://confluence.atlassian.com/confkb/how-to-fix-out-of-memory-errors-by-increasing-available-memory-154071.html)
+   这里使用了mysql 5.6 版本
 
-     ![image](error.png)
+   后面就是驱动连接数据库并生成相对于的表这里时间可能会长一些,因机器配置而定
 
-     如果你决定增加内存设置，则需要遵循一些通用准则
+   9. 创建项目之后发现会有出现中文乱码现象
 
-     以小增量增加Xmx（例如，每次512mb），直到您不再遇到OutOfMemory错误。
+   mysql -u root -p 
 
-     Confluence 5.8或以上的**CATALINA_OPTS =“ - Xms1024m -Xmx1024m -XX：+ UseG1GC ****$ CATALINA_OPTS**** ”**** **
+   show variables like 'character_set%';
 
-     ****Confluence 5.6或5.7中的**CATALINA_OPTS =“$ CATALINA_OPTS -Xms1024m -Xmx1024m -XX：MaxPermSize = 256m -XX：+ UseG1GC”**
+   查看数据库编码相关信息
 
-     **JAVA_OPTS =“ - Xms256m -Xmx512m -XX：MaxPermSize = 256m**以前的版本
+   10. 如遇到**OutOfMemoryError**错误时,这时应该在
 
-     ![image](img/info.png)
+   /opt/atlassian/confluence/bin/setenv.sh 中修改
+
+   [官方说明](https://confluence.atlassian.com/confkb/how-to-fix-out-of-memory-errors-by-increasing-available-memory-154071.html)
+
+   ![image](img/error.png)
+
+   如果你决定增加内存设置，则需要遵循一些通用准则
+
+   以小增量增加Xmx（例如，每次512mb），直到您不再遇到OutOfMemory错误。
+
+   Confluence 5.8或以上的**CATALINA_OPTS =“ - Xms1024m -Xmx1024m -XX：+ UseG1GC ****$ CATALINA_OPTS**** ”**** **
+
+   ****Confluence 5.6或5.7中的**CATALINA_OPTS =“$ CATALINA_OPTS -Xms1024m -Xmx1024m -XX：MaxPermSize = 256m -XX：+ UseG1GC”**
+
+   **JAVA_OPTS =“ - Xms256m -Xmx512m -XX：MaxPermSize = 256m**以前的版本
+
+   ![image](img/info.png)
+
+
